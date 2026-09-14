@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LingoPath : Contact Us</title>
+
+    <meta name="description"
+        content="Contact LingoPath for questions, support, course information, and general inquiries.">
+
+    <link rel="icon" href="img/icon.png">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #f6f7f9;
+            --surface: #ffffff;
+            --surface-2: #f1f3f6;
+            --text: #101828;
+            --muted: #667085;
+            --border: #e4e7ec;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #0a0f1c;
+            --dark-2: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1200px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 76px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .brand span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 10px 14px;
+            color: #475467;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 3px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .sign-in {
+            margin-left: 8px;
+            padding: 10px 17px !important;
+            color: #fff !important;
+            background: var(--dark);
+            border-radius: 8px;
+        }
+
+        .sign-in:hover {
+            background: var(--primary) !important;
+        }
+
+        .menu-btn {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border);
+            background: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* ================= HERO ================= */
+
+        .page-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 88px 0;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.20), transparent 28%),
+                radial-gradient(circle at 85% 80%, rgba(37, 99, 235, 0.12), transparent 30%),
+                linear-gradient(135deg, #080d18, #111827 60%, #0b1220);
+            color: #fff;
+        }
+
+        .page-hero::before {
+            content: "";
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            right: -170px;
+            top: -250px;
+        }
+
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            left: -180px;
+            bottom: -230px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .eyebrow i {
+            color: #60a5fa;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.05;
+            letter-spacing: -2.8px;
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 span {
+            color: #60a5fa;
+        }
+
+        .page-hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #aab4c5;
+            font-size: 17px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+            color: #98a2b3;
+            font-size: 13px;
+        }
+
+        .breadcrumb a {
+            color: #d0d5dd;
+        }
+
+        .breadcrumb .current {
+            color: #60a5fa;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+            padding: 100px 0;
+        }
+
+        .section-intro {
+            max-width: 720px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .section-label {
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-intro h2 {
+            margin-top: 10px;
+            font-size: clamp(32px, 4vw, 44px);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+        }
+
+        .section-intro p {
+            margin-top: 15px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        /* ================= CONTACT INFO ================= */
+
+        .contact-info {
+            padding: 36px;
+            background: var(--dark);
+            color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 18px 45px rgba(16, 24, 40, 0.12);
+        }
+
+        .contact-info h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info > p {
+            color: #aab4c5;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 18px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.09);
+        }
+
+        .info-icon {
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: rgba(37, 99, 235, 0.16);
+            color: #60a5fa;
+        }
+
+        .info-item h4 {
+            margin-bottom: 3px;
+            font-size: 14px;
+        }
+
+        .info-item p {
+            color: #98a2b3;
+            font-size: 13px;
+        }
+
+        .info-item a {
+            color: #98a2b3;
+            transition: 0.2s ease;
+        }
+
+        .info-item a:hover {
+            color: #fff;
+        }
+
+        /* ================= CONTACT FORM ================= */
+
+        .contact-form-card {
+            padding: 36px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .contact-form-card h3 {
+            font-size: 25px;
+            margin-bottom: 7px;
+        }
+
+        .contact-form-card > p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #344054;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            outline: none;
+            background: #fff;
+            color: var(--text);
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
+
+        .form-group input {
+            height: 48px;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+        }
+
+        .submit-btn {
+            width: 100%;
+            height: 50px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* ================= FAQ STRIP ================= */
+
+        .help-strip {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 30px;
+            margin-top: 25px;
+            padding: 28px 32px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--surface-2);
+        }
+
+        .help-strip h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .help-strip p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .help-strip a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 17px;
+            background: var(--dark);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .help-strip a:hover {
+            background: var(--primary);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding-top: 65px;
+            background: var(--dark);
+            color: #98a2b3;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 60px;
+            padding-bottom: 55px;
+        }
+
+        .footer-brand {
+            color: #fff;
+            font-size: 21px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand span {
+            color: #60a5fa;
+        }
+
+        .footer-description {
+            max-width: 320px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer h3 {
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            transform: translateX(3px);
+        }
+
+        .socials {
+            display: flex;
+            gap: 9px;
+            margin-top: 22px;
+        }
+
+        .socials a {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #293241;
+            border-radius: 8px;
+            color: #cbd5e1;
+            transition: 0.2s ease;
+        }
+
+        .socials a:hover {
+            background: #fff;
+            color: var(--dark);
+            border-color: #fff;
+        }
+
+        .newsletter p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-form input {
+            min-width: 0;
+            flex: 1;
+            padding: 12px 14px;
+            border: 1px solid #293241;
+            border-radius: 8px;
+            outline: none;
+            background: #111827;
+            color: #fff;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #667085;
+        }
+
+        .newsletter-form button {
+            padding: 0 17px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .copyright {
+            padding: 22px 0;
+            border-top: 1px solid #202938;
+            font-size: 13px;
+        }
+
+        .copyright a {
+            color: #d0d5dd;
+        }
+
+        /* ================= BACK TOP ================= */
+
+        .back-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border: none;
+            border-radius: 9px;
+            background: var(--primary);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.25s ease;
+            z-index: 999;
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .menu-btn {
+                display: grid;
+                place-items: center;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 76px;
+                left: 20px;
+                right: 20px;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 12px;
+                background: #fff;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                box-shadow: 0 18px 45px rgba(16, 24, 40, 0.12);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px 14px;
+            }
+
+            .nav-links a.active::after {
+                display: none;
+            }
+
+            .sign-in {
+                margin-left: 0;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .newsletter {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: min(100% - 28px, 1200px);
+            }
+
+            .navbar {
+                height: 68px;
+            }
+
+            .nav-links {
+                top: 68px;
+                left: 14px;
+                right: 14px;
+            }
+
+            .brand {
+                font-size: 19px;
+            }
+
+            .brand img {
+                width: 38px;
+                height: 38px;
+            }
+
+            .page-hero {
+                padding: 70px 0;
+            }
+
+            .page-hero h1 {
+                letter-spacing: -1.8px;
+            }
+
+            .page-hero p {
+                font-size: 15px;
+            }
+
+            .contact-section {
+                padding: 70px 0;
+            }
+
+            .contact-info,
+            .contact-form-card {
+                padding: 25px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .help-strip {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+
+            .help-strip a {
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 38px;
+            }
+
+            .newsletter {
+                grid-column: auto;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+        <div class="container nav-inner">
+
+            <a href="index.html" class="brand">
+                <img src="img/icon.png" alt="LingoPath logo">
+                Lingo<span>Path</span>
+            </a>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Open navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="courses.html">Courses</a>
+                <a href="team.html">Team</a>
+                <a href="testimonial.html">Reviews</a>
+                <a href="contact.html" class="active">Contact</a>
+
+                <a href="login.html" class="sign-in">
+                    <i class="fa-regular fa-user"></i>
+                    Sign in
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="page-hero">
+
+        <div class="container hero-content">
+
+            <div class="eyebrow">
+                <i class="fa-regular fa-envelope"></i>
+                Contact LingoPath
+            </div>
+
+            <h1>Let's start a <span>conversation.</span></h1>
+
+            <p>
+                Have a question about our courses, platform, or learning
+                resources? Send us a message and we'll be happy to help.
+            </p>
+
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="current">Contact</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+
+    <main class="contact-section">
+
+        <div class="container">
+
+            <div class="section-intro">
+                <span class="section-label">Get in touch</span>
+
+                <h2>How can we help?</h2>
+
+                <p>
+                    Whether you need information about a course or have
+                    feedback about LingoPath, we'd like to hear from you.
+                </p>
+            </div>
+
+            <div class="contact-layout">
+
+                <!-- CONTACT INFORMATION -->
+
+                <section class="contact-info">
+
+                    <h3>Contact information</h3>
+
+                    <p>
+                        Reach out through any of the channels below. We aim to
+                        make getting support simple and straightforward.
+                    </p>
+
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <div>
+                            <h4>Office</h4>
+                            <p>123 Street, Karachi, Pakistan</p>
+                        </div>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+
+                        <div>
+                            <h4>Phone</h4>
+                            <p>
+                                <a href="tel:+9230012443244">
+                                    +92 30012443244
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+
+                        <div>
+                            <h4>Email</h4>
+                            <p>
+                                <a href="mailto:secretcoder@gmail.com">
+                                    Contact@lingopath.com
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- CONTACT FORM -->
+
+                <section class="contact-form-card">
+
+                    <h3>Send us a message</h3>
+
+                    <p>
+                        Fill in the form below and your email application will
+                        open with the message prepared for sending.
+                    </p>
+
+                    <form id="contactForm">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="name">
+                                    Your Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Enter your name"
+                                    required
+                                >
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Your Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="you@example.com"
+                                    required
+                                >
+
+                            </div>
+
+                            <div class="form-group full">
+
+                                <label for="subject">
+                                    Subject
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="subject"
+                                    placeholder="What would you like to ask?"
+                                    required
+                                >
+
+                            </div>
+
+                            <div class="form-group full">
+
+                                <label for="message">
+                                    Message
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    placeholder="Write your message here..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <button class="submit-btn" type="submit">
+                            Send Message
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </form>
+
+                </section>
+
+            </div>
+
+            <!-- SUPPORT STRIP -->
+
+            <div class="help-strip">
+
+                <div>
+                    <h3>Looking for a course?</h3>
+
+                    <p>
+                        Browse the LingoPath learning library and find a course
+                        that matches your goals.
+                    </p>
+                </div>
+
+                <a href="courses.html">
+                    Explore Courses
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <div class="footer-brand">
+                        Lingo<span>Path</span>
+                    </div>
+
+                    <p class="footer-description">
+                        A modern online learning platform helping learners
+                        build practical knowledge and skills through accessible
+                        digital education.
+                    </p>
+
+                    <div class="socials">
+
+                        <a href="#" aria-label="X">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+
+                        <a href="#" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+
+                        <a href="#" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <h3>Quick Links</h3>
+
+                    <div class="footer-links">
+
+                        <a href="about.html">About Us</a>
+                        <a href="courses.html">Courses</a>
+                        <a href="team.html">Our Team</a>
+                        <a href="testimonial.html">Reviews</a>
+                        <a href="contact.html">Contact Us</a>
+
+                    </div>
+
+                </div>
+
+                <div class="newsletter">
+
+                    <h3>Stay updated</h3>
+
+                    <p>
+                        Get updates about new courses, learning resources,
+                        and platform improvements.
+                    </p>
+
+                    <form class="newsletter-form" id="newsletterForm">
+
+                        <input
+                            type="email"
+                            id="newsletterEmail"
+                            placeholder="Your email address"
+                            required
+                        >
+
+                        <button type="submit">
+                            Subscribe
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                © <a href="index.html">LingoPath</a>. All rights reserved.
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- BACK TO TOP -->
+
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* Mobile Navigation */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+
+            navLinks.classList.toggle("open");
+
+            const icon = menuBtn.querySelector("i");
+
+            if (navLinks.classList.contains("open")) {
+
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            }
+
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("open");
+
+                const icon = menuBtn.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            });
+
+        });
+
+
+        /* Contact Form */
+
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const mailSubject = encodeURIComponent(subject);
+
+            const mailBody = encodeURIComponent(
+                "Name: " + name +
+                "\nEmail: " + email +
+                "\n\nMessage:\n" + message
+            );
+
+            window.location.href =
+                "mailto:secretcoder@gmail.com?subject=" +
+                mailSubject +
+                "&body=" +
+                mailBody;
+
+        });
+
+
+        /* Newsletter */
+
+        document.getElementById("newsletterForm").addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("newsletterEmail").value;
+
+            if (email) {
+
+                alert("Thanks for subscribing to LingoPath!");
+
+                this.reset();
+
+            }
+
+        });
+
+
+        /* Back To Top */
+
+        const backTop = document.getElementById("backTop");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 400) {
+
+                backTop.classList.add("show");
+
+            } else {
+
+                backTop.classList.remove("show");
+
+            }
+
+        });
+
+        backTop.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

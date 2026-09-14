@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LingoPath | Sign In</title>
+    <meta name="description" content="Sign in to your LingoPath learning account and continue your learning journey.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/icon.png">
+    <link rel="shortcut icon" href="./img/icon.png">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #f6f7f9;
+            --surface: #ffffff;
+            --surface-2: #f1f3f6;
+            --text: #101828;
+            --muted: #667085;
+            --border: #e4e7ec;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #0a0f1c;
+            --dark-2: #111827;
+            --blue-bg: #eff6ff;
+            --shadow-sm: 0 2px 8px rgba(16, 24, 40, .05);
+            --shadow-md: 0 18px 50px rgba(16, 24, 40, .10);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            height: 76px;
+            background: rgba(255, 255, 255, .94);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: min(1200px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        .nav-inner {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -.6px;
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links a {
+            color: #475467;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 13px;
+            border-radius: 9px;
+            transition: .2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: var(--blue-bg);
+        }
+
+        .nav-links .active {
+            color: var(--primary);
+            background: var(--blue-bg);
+        }
+
+        .nav-signup {
+            margin-left: 7px;
+            color: white !important;
+            background: var(--primary);
+            padding-left: 17px !important;
+            padding-right: 17px !important;
+        }
+
+        .nav-signup:hover {
+            background: var(--primary-dark) !important;
+            color: white !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: white;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        /* =========================
+           PAGE HERO
+        ========================== */
+
+        .page-header {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, .18), transparent 30%),
+                radial-gradient(circle at 10% 90%, rgba(59, 130, 246, .09), transparent 30%),
+                linear-gradient(135deg, #080d18, #101827);
+            color: white;
+            padding: 72px 0 68px;
+        }
+
+        .page-header::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(255,255,255,.05);
+            border-radius: 50%;
+            right: -190px;
+            top: -250px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .header-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.05);
+            color: #b8c5da;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 18px;
+        }
+
+        .header-label i {
+            color: #60a5fa;
+        }
+
+        .page-header h1 {
+            font-size: clamp(38px, 5vw, 54px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 14px;
+        }
+
+        .page-header p {
+            max-width: 580px;
+            margin: auto;
+            color: #aab5c7;
+            font-size: 15px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 22px;
+            font-size: 13px;
+            color: #7f8da3;
+        }
+
+        .breadcrumb a {
+            color: #d5ddeb;
+        }
+
+        /* =========================
+           LOGIN AREA
+        ========================== */
+
+        .login-section {
+            padding: 80px 0 95px;
+        }
+
+        .login-layout {
+            width: min(1050px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Left side */
+
+        .login-info {
+            position: relative;
+            padding: 55px;
+            background:
+                radial-gradient(circle at 85% 15%, rgba(37,99,235,.16), transparent 30%),
+                linear-gradient(145deg, #0a0f1c, #111827);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-info::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(255,255,255,.05);
+            border-radius: 50%;
+            right: -170px;
+            bottom: -160px;
+        }
+
+        .info-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.10);
+            color: #60a5fa;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .login-info h2 {
+            position: relative;
+            z-index: 2;
+            font-size: 32px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .login-info > p {
+            position: relative;
+            z-index: 2;
+            color: #aab5c7;
+            font-size: 14px;
+            max-width: 390px;
+            margin-bottom: 32px;
+        }
+
+        .info-list {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            gap: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #d6deeb;
+            font-size: 14px;
+        }
+
+        .info-item i {
+            width: 27px;
+            height: 27px;
+            display: grid;
+            place-items: center;
+            border-radius: 7px;
+            background: rgba(96,165,250,.10);
+            color: #60a5fa;
+            font-size: 11px;
+        }
+
+        /* Right side */
+
+        .login-card {
+            padding: 55px;
+            background: white;
+        }
+
+        .login-heading {
+            margin-bottom: 32px;
+        }
+
+        .login-heading h2 {
+            font-size: 27px;
+            letter-spacing: -.8px;
+            margin-bottom: 7px;
+        }
+
+        .login-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 19px;
+        }
+
+        .form-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #344054;
+        }
+
+        .forgot-link {
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #98a2b3;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 48px;
+            padding: 0 43px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            outline: none;
+            background: white;
+            color: var(--text);
+            transition: .2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37,99,235,.10);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #98a2b3;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .password-toggle:hover {
+            color: var(--text);
+        }
+
+        .remember-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 6px 0 22px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .remember input {
+            accent-color: var(--primary);
+        }
+
+        .login-button {
+            width: 100%;
+            height: 49px;
+            border: none;
+            border-radius: 10px;
+            background: var(--primary);
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .login-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #98a2b3;
+            font-size: 11px;
+            margin: 25px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            height: 1px;
+            background: var(--border);
+            flex: 1;
+        }
+
+        .signup-text {
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .signup-text a {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding-top: 65px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 65px;
+            padding-bottom: 50px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 17px;
+        }
+
+        .footer-brand img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        .footer-brand strong {
+            font-size: 21px;
+        }
+
+        .footer p {
+            color: #98a2b3;
+            font-size: 13px;
+        }
+
+        .footer h3 {
+            font-size: 14px;
+            margin-bottom: 19px;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #98a2b3;
+            font-size: 13px;
+            transition: .2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact div {
+            display: flex;
+            gap: 10px;
+            color: #98a2b3;
+            font-size: 13px;
+        }
+
+        .footer-contact i {
+            width: 16px;
+            color: #60a5fa;
+            margin-top: 4px;
+        }
+
+        .socials {
+            display: flex;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .socials a {
+            width: 35px;
+            height: 35px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #283244;
+            border-radius: 9px;
+            color: #98a2b3;
+            transition: .2s;
+        }
+
+        .socials a:hover {
+            color: white;
+            border-color: #64748b;
+        }
+
+        .newsletter {
+            display: flex;
+            margin-top: 16px;
+            max-width: 410px;
+        }
+
+        .newsletter input {
+            flex: 1;
+            min-width: 0;
+            height: 44px;
+            padding: 0 13px;
+            border: 1px solid #283244;
+            border-radius: 9px 0 0 9px;
+            background: #151e2d;
+            color: white;
+            outline: none;
+        }
+
+        .newsletter button {
+            height: 44px;
+            border: none;
+            padding: 0 16px;
+            background: var(--primary);
+            color: white;
+            border-radius: 0 9px 9px 0;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #202a3a;
+            padding: 21px 0;
+            color: #667085;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* =========================
+           BACK TO TOP
+        ========================== */
+
+        .back-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 43px;
+            height: 43px;
+            display: grid;
+            place-items: center;
+            background: var(--primary);
+            color: white;
+            border-radius: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: .2s;
+            z-index: 900;
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-top:hover {
+            background: var(--primary-dark);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 950px) {
+
+            .login-layout {
+                grid-template-columns: 1fr;
+                max-width: 620px;
+            }
+
+            .login-info {
+                padding: 40px;
+            }
+
+            .login-card {
+                padding: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                left: 20px;
+                right: 20px;
+                top: 84px;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 10px;
+                background: white;
+                border: 1px solid var(--border);
+                border-radius: 14px;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+            }
+
+            .nav-signup {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: min(100% - 28px, 1200px);
+            }
+
+            .page-header {
+                padding: 58px 0;
+            }
+
+            .login-section {
+                padding: 45px 0 65px;
+            }
+
+            .login-info {
+                padding: 32px 25px;
+            }
+
+            .login-card {
+                padding: 30px 24px;
+            }
+
+            .login-info h2 {
+                font-size: 27px;
+            }
+
+            .login-heading h2 {
+                font-size: 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 38px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================== -->
+
+<header class="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="index.html" class="brand" aria-label="LingoPath home">
+            <img src="img/icon.png" alt="LingoPath logo">
+            <span class="brand-name">LingoPath</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="courses.html">Courses</a>
+            <a href="team.html">Team</a>
+            <a href="testimonial.html">Reviews</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="active">Sign in</a>
+            <a href="signup.html" class="nav-signup">Create account</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     PAGE HEADER
+========================== -->
+
+<section class="page-header">
+
+    <div class="container header-content">
+
+        <div class="header-label">
+            <i class="fa-solid fa-lock"></i>
+            Secure account access
+        </div>
+
+        <h1>Welcome back.</h1>
+
+        <p>
+            Sign in to continue your courses, track your progress
+            and keep learning with LingoPath.
+        </p>
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <span>Sign in</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LOGIN
+========================== -->
+
+<main>
+
+<section class="login-section">
+
+    <div class="container">
+
+        <div class="login-layout">
+
+            <!-- Information panel -->
+
+            <div class="login-info">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <h2>
+                    Keep your learning journey moving.
+                </h2>
+
+                <p>
+                    Your LingoPath account keeps your courses,
+                    learning activity and progress in one place.
+                </p>
+
+                <div class="info-list">
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Continue courses from where you stopped</span>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Track your learning progress</span>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Access your saved learning resources</span>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Build your personal learning profile</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Login form -->
+
+            <div class="login-card">
+
+                <div class="login-heading">
+
+                    <h2>Sign in to LingoPath</h2>
+
+                    <p>
+                        Enter your account details below.
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <div class="form-label-row">
+
+                            <label
+                                class="form-label"
+                                for="email">
+                                Email address
+                            </label>
+
+                        </div>
+
+                        <div class="input-wrap">
+
+                            <i class="fa-regular fa-envelope input-icon"></i>
+
+                            <input
+                                class="form-control"
+                                type="email"
+                                id="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <div class="form-label-row">
+
+                            <label
+                                class="form-label"
+                                for="password">
+                                Password
+                            </label>
+
+                            <a href="#" class="forgot-link" id="forgotPassword">
+                                Forgot password?
+                            </a>
+
+                        </div>
+
+                        <div class="input-wrap">
+
+                            <i class="fa-solid fa-lock input-icon"></i>
+
+                            <input
+                                class="form-control"
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="passwordToggle"
+                                aria-label="Show password">
+
+                                <i class="fa-regular fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Remember -->
+
+                    <div class="remember-row">
+
+                        <label class="remember">
+
+                            <input type="checkbox" id="remember">
+
+                            <span>Remember me</span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="login-button">
+
+                        Sign in
+                        <i class="fa-solid fa-arrow-right" style="margin-left:7px;"></i>
+
+                    </button>
+
+                </form>
+
+
+                <div class="divider">
+                    OR
+                </div>
+
+
+                <div class="signup-text">
+
+                    Don't have an account?
+                    <a href="signup.html">Create an account</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <!-- Brand -->
+
+            <div>
+
+                <div class="footer-brand">
+
+                    <img
+                        src="img/icon.png"
+                        alt="LingoPath logo">
+
+                    <strong>LingoPath</strong>
+
+                </div>
+
+                <p>
+                    A modern learning platform designed to help
+                    people build practical skills and keep moving forward.
+                </p>
+
+                <div class="socials">
+
+                    <a href="#" aria-label="LingoPath on X">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#" aria-label="LingoPath on Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" aria-label="LingoPath on YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                    <a href="#" aria-label="LingoPath on LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Links -->
+
+            <div>
+
+                <h3>Explore</h3>
+
+                <div class="footer-links">
+
+                    <a href="about.html">About LingoPath</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="team.html">Our Team</a>
+                    <a href="testimonial.html">Reviews</a>
+                    <a href="instructor.html">Become an Instructor</a>
+                    <a href="contact.html">Contact</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Contact -->
+
+            <div>
+
+                <h3>Stay connected</h3>
+
+                <div class="footer-contact">
+
+                    <div>
+                        <i class="fa-solid fa-globe"></i>
+                        <span>Online • Worldwide</span>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>hello@lerno.example</span>
+                    </div>
+
+                </div>
+
+                <p>
+                    Get updates about new courses, resources
+                    and learning opportunities.
+                </p>
+
+                <form class="newsletter" id="newsletterForm">
+
+                    <input
+                        type="email"
+                        placeholder="Your email"
+                        aria-label="Email address"
+                        required>
+
+                    <button type="submit">
+                        Subscribe
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="year"></span> LingoPath. All rights reserved.
+            </span>
+
+            <span>
+                Learn • Build • Grow
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- Back to top -->
+
+<a
+    href="#"
+    class="back-top"
+    id="backTop"
+    aria-label="Back to top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</a>
+
+
+<script>
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+
+        const isOpen = navLinks.classList.toggle("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+        menuToggle.innerHTML = isOpen
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+
+    });
+
+
+    /* =========================
+       PASSWORD VISIBILITY
+    ========================== */
+
+    const password = document.getElementById("password");
+    const passwordToggle = document.getElementById("passwordToggle");
+
+    passwordToggle.addEventListener("click", function () {
+
+        const isPassword = password.type === "password";
+
+        password.type = isPassword
+            ? "text"
+            : "password";
+
+        passwordToggle.innerHTML = isPassword
+            ? '<i class="fa-regular fa-eye-slash"></i>'
+            : '<i class="fa-regular fa-eye"></i>';
+
+        passwordToggle.setAttribute(
+            "aria-label",
+            isPassword ? "Hide password" : "Show password"
+        );
+
+    });
+
+
+    /* =========================
+       LOGIN DEMO
+    ========================== */
+
+    document.getElementById("loginForm").addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+
+            alert(
+                "Login demo submitted for " +
+                email +
+                ". Connect this form to your authentication system to enable real account login."
+            );
+
+        }
+    );
+
+
+    /* =========================
+       FORGOT PASSWORD
+    ========================== */
+
+    document.getElementById("forgotPassword").addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+
+            if (!email) {
+
+                alert(
+                    "Enter your email address first, then we can use it for password recovery."
+                );
+
+                document.getElementById("email").focus();
+
+                return;
+            }
+
+            alert(
+                "Password recovery demo for " +
+                email +
+                ". Connect this feature to your backend email system."
+            );
+
+        }
+    );
+
+
+    /* =========================
+       NEWSLETTER
+    ========================== */
+
+    document.getElementById("newsletterForm").addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            alert("Thanks for subscribing to LingoPath!");
+
+            this.reset();
+
+        }
+    );
+
+
+    /* =========================
+       CURRENT YEAR
+    ========================== */
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+
+    /* =========================
+       BACK TO TOP
+    ========================== */
+
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 450) {
+
+            backTop.classList.add("show");
+
+        } else {
+
+            backTop.classList.remove("show");
+
+        }
+
+    });
+
+    backTop.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

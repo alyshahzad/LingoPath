@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Coder : About Us</title>
+    <meta name="description" content="Learn more about Secret Coder, our vision, mission, and approach to modern online education.">
+
+    <link rel="icon" href="img/icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #f6f7f9;
+            --surface: #ffffff;
+            --surface-2: #f1f3f6;
+            --text: #101828;
+            --muted: #667085;
+            --border: #e4e7ec;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #0a0f1c;
+            --dark-2: #111827;
+            --green: #087443;
+            --green-bg: #ecfdf3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1200px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 76px;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .brand span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 10px 14px;
+            color: #475467;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 3px;
+            height: 2px;
+            border-radius: 2px;
+            background: var(--primary);
+        }
+
+        .sign-in {
+            margin-left: 8px;
+            padding: 10px 17px !important;
+            color: white !important;
+            background: var(--dark);
+            border-radius: 8px;
+        }
+
+        .sign-in:hover {
+            background: var(--primary) !important;
+        }
+
+        .menu-btn {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* ================= HERO ================= */
+
+        .page-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 92px 0 88px;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.20), transparent 28%),
+                radial-gradient(circle at 85% 80%, rgba(37, 99, 235, 0.12), transparent 30%),
+                linear-gradient(135deg, #080d18, #111827 60%, #0b1220);
+            color: white;
+        }
+
+        .page-hero::before {
+            content: "";
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 50%;
+            right: -170px;
+            top: -250px;
+        }
+
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 50%;
+            left: -180px;
+            bottom: -230px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.05);
+            color: #cbd5e1;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow i {
+            color: #60a5fa;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.05;
+            letter-spacing: -2.8px;
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 span {
+            color: #60a5fa;
+        }
+
+        .page-hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #aab4c5;
+            font-size: 17px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+            color: #98a2b3;
+            font-size: 13px;
+        }
+
+        .breadcrumb a {
+            color: #d0d5dd;
+        }
+
+        .breadcrumb .current {
+            color: #60a5fa;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-section {
+            padding: 100px 0;
+        }
+
+        .about-intro {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 70px;
+            align-items: center;
+            margin-bottom: 90px;
+        }
+
+        .about-label {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-intro h2 {
+            max-width: 500px;
+            font-size: clamp(34px, 4vw, 48px);
+            line-height: 1.15;
+            letter-spacing: -1.8px;
+            margin-bottom: 20px;
+        }
+
+        .about-intro h2 span {
+            color: var(--primary);
+        }
+
+        .about-intro p {
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .mission-card {
+            padding: 34px;
+            background: var(--dark);
+            color: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(16, 24, 40, 0.12);
+        }
+
+        .mission-icon {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 24px;
+            border-radius: 12px;
+            background: rgba(37, 99, 235, 0.15);
+            color: #60a5fa;
+            font-size: 21px;
+        }
+
+        .mission-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .mission-card p {
+            color: #aab4c5;
+            margin: 0;
+        }
+
+        /* ================= VALUES ================= */
+
+        .section-heading {
+            margin-bottom: 42px;
+        }
+
+        .section-heading .label {
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-heading h2 {
+            margin-top: 10px;
+            font-size: 36px;
+            letter-spacing: -1.2px;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin-top: 10px;
+            color: var(--muted);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .value-card {
+            padding: 30px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: 0.25s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            border-color: #cbd5e1;
+            box-shadow: 0 16px 35px rgba(16, 24, 40, 0.07);
+        }
+
+        .value-icon {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background: var(--surface-2);
+            color: var(--primary);
+        }
+
+        .value-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* ================= CLOSING ================= */
+
+        .closing {
+            margin-top: 90px;
+            padding: 55px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            text-align: center;
+        }
+
+        .closing h2 {
+            font-size: 32px;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .closing p {
+            max-width: 700px;
+            margin: auto;
+            color: var(--muted);
+        }
+
+        .closing-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 25px;
+            padding: 13px 20px;
+            border-radius: 8px;
+            background: var(--primary);
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .closing-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            margin-top: 0;
+            padding-top: 65px;
+            background: var(--dark);
+            color: #98a2b3;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 60px;
+            padding-bottom: 55px;
+        }
+
+        .footer-brand {
+            color: white;
+            font-size: 21px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand span {
+            color: #60a5fa;
+        }
+
+        .footer-description {
+            max-width: 320px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer h3 {
+            color: white;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(3px);
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .contact-item i {
+            width: 18px;
+            margin-top: 4px;
+            color: #60a5fa;
+        }
+
+        .socials {
+            display: flex;
+            gap: 9px;
+            margin-top: 22px;
+        }
+
+        .socials a {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #293241;
+            border-radius: 8px;
+            color: #cbd5e1;
+            transition: 0.2s ease;
+        }
+
+        .socials a:hover {
+            background: white;
+            color: var(--dark);
+            border-color: white;
+        }
+
+        .newsletter p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-form input {
+            min-width: 0;
+            flex: 1;
+            padding: 12px 14px;
+            border: 1px solid #293241;
+            border-radius: 8px;
+            outline: none;
+            background: #111827;
+            color: white;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #667085;
+        }
+
+        .newsletter-form button {
+            padding: 0 17px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .copyright {
+            padding: 22px 0;
+            border-top: 1px solid #202938;
+            font-size: 13px;
+        }
+
+        .copyright a {
+            color: #d0d5dd;
+        }
+
+        /* ================= BACK TO TOP ================= */
+
+        .back-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border: none;
+            border-radius: 9px;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.25s ease;
+            z-index: 999;
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+            .menu-btn {
+                display: grid;
+                place-items: center;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 76px;
+                left: 20px;
+                right: 20px;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 12px;
+                background: white;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                box-shadow: 0 18px 45px rgba(16, 24, 40, 0.12);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px 14px;
+            }
+
+            .nav-links a.active::after {
+                display: none;
+            }
+
+            .sign-in {
+                margin-left: 0;
+            }
+
+            .about-intro {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .newsletter {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(100% - 28px, 1200px);
+            }
+
+            .navbar {
+                height: 68px;
+            }
+
+            .nav-links {
+                top: 68px;
+                left: 14px;
+                right: 14px;
+            }
+
+            .brand {
+                font-size: 19px;
+            }
+
+            .brand img {
+                width: 38px;
+                height: 38px;
+            }
+
+            .page-hero {
+                padding: 70px 0;
+            }
+
+            .page-hero h1 {
+                letter-spacing: -1.8px;
+            }
+
+            .page-hero p {
+                font-size: 15px;
+            }
+
+            .about-section {
+                padding: 70px 0;
+            }
+
+            .about-intro {
+                margin-bottom: 65px;
+            }
+
+            .mission-card {
+                padding: 26px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
+            }
+
+            .closing {
+                margin-top: 65px;
+                padding: 35px 22px;
+            }
+
+            .closing h2 {
+                font-size: 27px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 38px;
+            }
+
+            .newsletter {
+                grid-column: auto;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-inner">
+
+            <a href="index.html" class="brand">
+                <img src="img/icon.png" alt="Secret Coder logo">
+                Secret<span>Coder</span>
+            </a>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Open navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="courses.html">Courses</a>
+                <a href="team.html">Team</a>
+                <a href="testimonial.html">Reviews</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html" class="sign-in">
+                    <i class="fa-regular fa-user"></i> Sign in
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <div class="container hero-content">
+
+            <div class="eyebrow">
+                <i class="fa-solid fa-circle-info"></i>
+                About Secret Coder
+            </div>
+
+            <h1>Education without <span>boundaries.</span></h1>
+
+            <p>
+                A modern learning platform built to make practical knowledge
+                accessible, flexible, and useful for learners at every stage.
+            </p>
+
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="current">About</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <main class="about-section">
+        <div class="container">
+
+            <section class="about-intro">
+
+                <div>
+                    <span class="about-label">Who we are</span>
+
+                    <h2>
+                        Learning should be
+                        <span>accessible.</span>
+                    </h2>
+
+                    <p>
+                        At Secret Coder, we believe online education should be
+                        practical, flexible, and accessible to people regardless
+                        of where they live or what their background is.
+                    </p>
+
+                    <p>
+                        Our platform brings together structured courses,
+                        practical learning resources, and a supportive learning
+                        environment so students can build knowledge and develop
+                        skills at their own pace.
+                    </p>
+                </div>
+
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+
+                    <h3>Our Mission</h3>
+
+                    <p>
+                        To create a reliable digital learning environment where
+                        learners can discover useful skills, strengthen their
+                        knowledge, and continue learning beyond the classroom.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- VALUES -->
+            <section>
+
+                <div class="section-heading">
+                    <span class="label">What drives us</span>
+                    <h2>Built around better learning.</h2>
+                    <p>
+                        Everything at Secret Coder is shaped around making the
+                        learning experience clearer, more useful, and easier to
+                        access.
+                    </p>
+                </div>
+
+                <div class="values-grid">
+
+                    <article class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </div>
+                        <h3>Accessible Education</h3>
+                        <p>
+                            We want learning resources to be available to
+                            people regardless of location, background, or
+                            circumstances.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <h3>Quality First</h3>
+                        <p>
+                            We focus on useful, well-structured content that
+                            helps learners gain knowledge they can actually
+                            apply.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h3>Modern Learning</h3>
+                        <p>
+                            Technology gives learners new ways to understand
+                            concepts, practice skills, and learn more
+                            effectively.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3>Learning Community</h3>
+                        <p>
+                            Education becomes stronger when people can share
+                            ideas, discuss concepts, and learn from each other.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3>Diverse Learning Paths</h3>
+                        <p>
+                            Different learners need different approaches, so
+                            our platform supports a variety of subjects and
+                            learning styles.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                        </div>
+                        <h3>Continuous Improvement</h3>
+                        <p>
+                            We use learner feedback and changing needs to
+                            continuously improve the platform and its content.
+                        </p>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- CLOSING -->
+            <section class="closing">
+                <h2>Keep learning. Keep moving forward.</h2>
+
+                <p>
+                    Whether you're starting from the beginning or building on
+                    existing knowledge, Secret Coder is designed to help you
+                    take the next step.
+                </p>
+
+                <a href="courses.html" class="closing-btn">
+                    Explore Courses
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+                    <div class="footer-brand">
+                        Secret<span>Coder</span>
+                    </div>
+
+                    <p class="footer-description">
+                        A modern online learning platform helping learners
+                        build practical knowledge and skills through accessible
+                        digital education.
+                    </p>
+
+                    <div class="socials">
+                        <a href="#" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Quick Links</h3>
+
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="courses.html">Courses</a>
+                        <a href="team.html">Our Team</a>
+                        <a href="testimonial.html">Reviews</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="newsletter">
+                    <h3>Stay updated</h3>
+
+                    <p>
+                        Get updates about new courses, learning resources,
+                        and platform improvements.
+                    </p>
+
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Your email address"
+                            aria-label="Your email address"
+                            required
+                        >
+
+                        <button type="submit">Subscribe</button>
+                    </form>
+
+                    <div class="contact-list" style="margin-top: 22px;">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>secretcoder@gmail.com</span>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+91 8683045908</span>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>123 Street, Bangalore, Karnataka</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                © <a href="index.html">Secret Coder</a>. All rights reserved.
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+
+            const icon = menuBtn.querySelector("i");
+
+            if (navLinks.classList.contains("open")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+            } else {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            }
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+
+                const icon = menuBtn.querySelector("i");
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            });
+        });
+
+        const backTop = document.getElementById("backTop");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                backTop.classList.add("show");
+            } else {
+                backTop.classList.remove("show");
+            }
+        });
+
+        backTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        document.getElementById("newsletterForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+
+            if (email) {
+                alert("Thanks for subscribing to Secret Coder!");
+                this.reset();
+            }
+        });
+    </script>
+
+</body>
+</html>

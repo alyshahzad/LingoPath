@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LingoPath | Our Team</title>
+    <meta name="description" content="Meet the team behind LingoPath and learn more about the people building practical online learning experiences.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/icon.png">
+    <link rel="shortcut icon" href="./img/icon.png">
+    <link rel="apple-touch-icon" href="./img/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #f6f7f9;
+            --surface: #ffffff;
+            --surface-2: #f1f3f6;
+            --text: #101828;
+            --muted: #667085;
+            --border: #e4e7ec;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #0a0f1c;
+            --dark-2: #111827;
+            --green: #087443;
+            --green-bg: #ecfdf3;
+            --blue-bg: #eff6ff;
+            --yellow: #f59e0b;
+            --shadow-sm: 0 2px 8px rgba(16, 24, 40, .05);
+            --shadow-md: 0 12px 30px rgba(16, 24, 40, .08);
+            --radius: 16px;
+            --max-width: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(var(--max-width), calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 76px;
+            background: rgba(255, 255, 255, .92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(228, 231, 236, .8);
+        }
+
+        .nav-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 21px;
+            letter-spacing: -.5px;
+        }
+
+        .brand img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-links a {
+            color: #475467;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 13px;
+            border-radius: 9px;
+            transition: .2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+            background: var(--blue-bg);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin-left: 8px;
+        }
+
+        .nav-btn {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 9px 15px !important;
+            border-radius: 9px !important;
+        }
+
+        .nav-login {
+            border: 1px solid var(--border);
+            background: #fff;
+        }
+
+        .nav-signup {
+            color: #fff !important;
+            background: var(--primary);
+        }
+
+        .nav-signup:hover {
+            color: #fff !important;
+            background: var(--primary-dark) !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 1px solid var(--border);
+            background: #fff;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: var(--text);
+            font-size: 18px;
+        }
+
+        /* =========================
+           PAGE HERO
+        ========================= */
+
+        .page-hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, .18), transparent 28%),
+                radial-gradient(circle at 85% 70%, rgba(37, 99, 235, .12), transparent 30%),
+                var(--dark);
+            color: #fff;
+            padding: 82px 0 88px;
+        }
+
+        .page-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 42px 42px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #98a2b3;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .breadcrumb a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb i {
+            font-size: 10px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #bfdbfe;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 14px;
+        }
+
+        .eyebrow span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #60a5fa;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.05;
+            letter-spacing: -2.5px;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            max-width: 680px;
+            color: #cbd5e1;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            padding: 85px 0 45px;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .section-label {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 18px;
+        }
+
+        .intro-text {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .intro-note {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .note-icon {
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: var(--blue-bg);
+            color: var(--primary);
+        }
+
+        .intro-note h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .intro-note p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           TEAM
+        ========================= */
+
+        .team-section {
+            padding: 45px 0 95px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        .section-heading p {
+            max-width: 470px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .team-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .member-image {
+            height: 420px;
+            background: var(--surface-2);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-image::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0;
+            height: 100px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, .08));
+            pointer-events: none;
+        }
+
+        .member-image img {
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+        }
+
+        .member-content {
+            padding: 25px 26px 27px;
+        }
+
+        .member-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .member-name {
+            font-size: 21px;
+            letter-spacing: -.4px;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .member-description {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 18px 0 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            color: #475467;
+            background: #fff;
+            transition: .2s ease;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           COLLABORATION CTA
+        ========================= */
+
+        .cta-section {
+            padding: 0 0 95px;
+        }
+
+        .cta {
+            position: relative;
+            overflow: hidden;
+            background: var(--dark);
+            border-radius: 22px;
+            padding: 55px 60px;
+            color: #fff;
+        }
+
+        .cta::before {
+            content: "";
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, .18);
+            right: -100px;
+            top: -150px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+
+        .cta h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            letter-spacing: -1px;
+            margin-bottom: 13px;
+        }
+
+        .cta p {
+            color: #cbd5e1;
+            max-width: 630px;
+            line-height: 1.75;
+            margin-bottom: 25px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: var(--primary);
+            color: #fff;
+            border: 1px solid var(--primary);
+            padding: 12px 18px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: .2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--dark);
+            color: #d0d5dd;
+            border-top: 1px solid #1f2937;
+        }
+
+        .footer-main {
+            padding: 65px 0 45px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
+
+        .footer-about {
+            max-width: 380px;
+            color: #98a2b3;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer h3 {
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .footer-links a {
+            color: #98a2b3;
+            font-size: 13px;
+            transition: .2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 9px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 37px;
+            height: 37px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #344054;
+            border-radius: 9px;
+            color: #98a2b3;
+            transition: .2s ease;
+        }
+
+        .footer-social a:hover {
+            color: #fff;
+            border-color: #667085;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1f2937;
+            padding: 20px 0;
+        }
+
+        .footer-bottom-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: #667085;
+            font-size: 12px;
+        }
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
+
+        .back-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: .25s ease;
+            z-index: 999;
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-top:hover {
+            background: var(--primary-dark);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 950px) {
+            .nav-links {
+                gap: 2px;
+            }
+
+            .nav-links a {
+                padding: 9px 8px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 780px) {
+            .navbar {
+                height: 68px;
+            }
+
+            .menu-toggle {
+                display: grid;
+                place-items: center;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 4px;
+                padding: 15px 20px 20px;
+                background: #fff;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 12px 20px rgba(16, 24, 40, .07);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px 13px;
+            }
+
+            .nav-actions {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                margin: 4px 0 0;
+            }
+
+            .nav-btn {
+                width: 100%;
+            }
+
+            .page-hero {
+                padding: 65px 0 70px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cta {
+                padding: 42px 28px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(var(--max-width), calc(100% - 28px));
+            }
+
+            .page-hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .intro {
+                padding-top: 60px;
+            }
+
+            .team-section,
+            .cta-section {
+                padding-bottom: 65px;
+            }
+
+            .member-image {
+                height: 360px;
+            }
+
+            .member-content {
+                padding: 22px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .footer-bottom-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .back-top {
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+    <header class="navbar">
+        <div class="container nav-inner">
+
+            <a href="index.html" class="brand" aria-label="LingoPath home">
+                <img src="img/icon.png" alt="LingoPath logo">
+                <span class="brand-name">LingoPath</span>
+            </a>
+
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="courses.html">Courses</a>
+                <a href="team.html" class="active">Team</a>
+                <a href="testimonial.html">Reviews</a>
+                <a href="contact.html">Contact</a>
+
+                <div class="nav-actions">
+                    <a href="login.html" class="nav-btn nav-login">
+                        Sign in
+                    </a>
+
+                    <a href="signup.html" class="nav-btn nav-signup">
+                        Create account
+                    </a>
+                </div>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         PAGE HERO
+    ========================= -->
+    <section class="page-hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>Team</span>
+                </div>
+
+                <div class="eyebrow">
+                    <span></span>
+                    The people behind LingoPath
+                </div>
+
+                <h1>Meet our team.</h1>
+
+                <p>
+                    LingoPath is built around a simple idea: learning should be
+                    practical, accessible, and easy to continue. Meet the people
+                    contributing to the platform and its learning experience.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+    <section class="intro">
+
+        <div class="container">
+
+            <div class="intro-grid">
+
+                <div>
+                    <div class="section-label">Our people</div>
+
+                    <h2 class="section-title">
+                        Building a better way to learn online.
+                    </h2>
+
+                    <p class="intro-text">
+                        LingoPath brings learning resources, structured courses,
+                        practical examples, and useful tools together in one
+                        platform. Our team focuses on creating an experience
+                        that is clear, useful, and accessible to learners.
+                    </p>
+                </div>
+
+                <div class="intro-note">
+
+                    <div class="note-icon">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+
+                    <div>
+                        <h3>Focused on practical learning</h3>
+
+                        <p>
+                            From course structure to the learner experience,
+                            we aim to keep the platform useful rather than
+                            overwhelming.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TEAM SECTION
+    ========================= -->
+    <section class="team-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="section-label">The team</div>
+
+                    <h2 class="section-title">
+                        People building the platform.
+                    </h2>
+                </div>
+
+                <p>
+                    Connect with our team members through their professional
+                    profiles and explore the work they contribute to LingoPath.
+                </p>
+
+            </div>
+
+
+            <div class="team-grid">
+
+                <!-- Team Member 1 -->
+                <article class="team-card">
+
+                    <div class="member-image">
+                        <img src="img/team-1.jpg"
+                             alt="Shahzad Ali">
+                    </div>
+
+                    <div class="member-content">
+
+                        <div class="member-top">
+
+                            <div>
+                                <h3 class="member-name">
+                                    Shahzad Ali
+                                </h3>
+
+                                <div class="member-role">
+                                    Team Leader
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="member-description">
+                            Contributes to the direction of the platform,
+                            project coordination, and the development of
+                            practical learning experiences.
+                        </p>
+
+                        <div class="social-links">
+
+                            <a href="https://www.linkedin.com/in/login"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Shahzad Ali on LinkedIn">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+
+                            <a href="mailto:Shahzad@gmail.com"
+                               aria-label="Email Shahzad Ali">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+
+                            <a href="https://github.com/alyshahzad"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Shahzad Ali on GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Team Member 2 -->
+                <article class="team-card">
+
+                    <div class="member-image">
+                        <img src="img/team-2.jpg"
+                             alt="Ahmed Ali">
+                    </div>
+
+                    <div class="member-content">
+
+                        <div class="member-top">
+
+                            <div>
+                                <h3 class="member-name">
+                                    Ahmed Ali
+                                </h3>
+
+                                <div class="member-role">
+                                    Team Member
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="member-description">
+                            Contributes to the platform's development,
+                            content experience, and implementation of
+                            learner-focused features.
+                        </p>
+
+                        <div class="social-links">
+
+                            <a href="https://www.linkedin.com/in/login/"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Ahmed Ali on LinkedIn">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+
+                            <a href="mailto:keertidvcorai@gmail.com"
+                               aria-label="Email Ahmed Ali">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+
+                            <a href="https://github.com/login"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Ahmed Ali on GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+    <section class="cta-section">
+
+        <div class="container">
+
+            <div class="cta">
+
+                <div class="cta-content">
+
+                    <h2>Want to be part of the journey?</h2>
+
+                    <p>
+                        LingoPath is designed to grow with its learners.
+                        Explore our courses, learn at your own pace, and
+                        become part of the learning community.
+                    </p>
+
+                    <a href="courses.html" class="btn-primary">
+                        Explore courses
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+    <footer>
+
+        <div class="footer-main">
+
+            <div class="container">
+
+                <div class="footer-grid">
+
+                    <!-- Brand -->
+                    <div>
+
+                        <a href="index.html" class="footer-brand">
+                            <img src="img/icon.png" alt="LingoPath logo">
+                            <span>LingoPath</span>
+                        </a>
+
+                        <p class="footer-about">
+                            A modern learning platform focused on practical
+                            courses, useful resources, and accessible online
+                            education.
+                        </p>
+
+                        <div class="footer-social">
+
+                            <a href="#"
+                               aria-label="LingoPath on LinkedIn">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+
+                            <a href="#"
+                               aria-label="LingoPath on GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+
+                            <a href="#"
+                               aria-label="LingoPath on YouTube">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Platform -->
+                    <div>
+
+                        <h3>Platform</h3>
+
+                        <div class="footer-links">
+                            <a href="about.html">About LingoPath</a>
+                            <a href="courses.html">Browse courses</a>
+                            <a href="team.html">Our team</a>
+                            <a href="testimonial.html">Learner reviews</a>
+                            <a href="contact.html">Contact us</a>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Account -->
+                    <div>
+
+                        <h3>Account</h3>
+
+                        <div class="footer-links">
+                            <a href="login.html">Sign in</a>
+                            <a href="signup.html">Create account</a>
+                            <a href="courses.html">Start learning</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <div class="footer-bottom-inner">
+
+                    <p>
+                        © <span id="currentYear"></span> LingoPath. All rights reserved.
+                    </p>
+
+                    <p>
+                        Built for learners.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Back to Top -->
+    <a href="#"
+       class="back-top"
+       id="backTop"
+       aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+
+    <script>
+        // Mobile navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+
+            menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+            menuToggle.innerHTML = isOpen
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-bars"></i>';
+        });
+
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+
+                menuToggle.setAttribute("aria-expanded", "false");
+
+                menuToggle.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+
+
+        // Back to top
+        const backTop = document.getElementById("backTop");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 450) {
+                backTop.classList.add("show");
+            } else {
+                backTop.classList.remove("show");
+            }
+        });
+
+
+        // Current year
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>

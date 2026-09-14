@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-translate-customization" content="9f841e7780177523-3214ceb76f765f38-gc38c6fe6f9d06436-c">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LingoPath | Online Learning Platform</title>
+    <meta name="description" content="LingoPath is an online learning platform for building practical skills through courses, projects and certificates.">
+    <meta name="keywords" content="LingoPath, online courses, learning platform, programming, web development, data science">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #f6f7f9;
+            --surface: #ffffff;
+            --surface-2: #f1f3f6;
+            --text: #101828;
+            --muted: #667085;
+            --border: #e4e7ec;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #080d19;
+            --dark-2: #111827;
+            --success: #087443;
+            --success-bg: #ecfdf3;
+            --warning: #f59e0b;
+            --radius: 18px;
+            --max: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .container {
+            width: min(var(--max), calc(100% - 40px));
+            margin: auto;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 76px;
+            background: rgba(255,255,255,.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(228,231,236,.85);
+        }
+
+        .nav-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -.6px;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 19px;
+            font-weight: 800;
+            box-shadow: 0 8px 20px rgba(37,99,235,.22);
+        }
+
+        .brand span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-links a,
+        .nav-dropdown-btn {
+            padding: 10px 13px;
+            border-radius: 9px;
+            color: #475467;
+            font-size: 14px;
+            font-weight: 600;
+            transition: .2s ease;
+            cursor: pointer;
+            border: 0;
+            background: transparent;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active,
+        .nav-dropdown-btn:hover {
+            color: var(--primary);
+            background: #eff6ff;
+        }
+
+        .nav-login {
+            border: 1px solid var(--border) !important;
+            margin-left: 8px;
+        }
+
+        .nav-login:hover {
+            border-color: #bfd3ff !important;
+        }
+
+        .nav-signup {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 10px 17px !important;
+        }
+
+        .nav-signup:hover {
+            background: var(--primary-dark) !important;
+            color: white !important;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 45px;
+            right: 0;
+            width: 180px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 7px;
+            box-shadow: 0 18px 40px rgba(16,24,40,.12);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 12px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .mobile-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 650px;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(37,99,235,.24), transparent 30%),
+                radial-gradient(circle at 10% 90%, rgba(79,70,229,.18), transparent 28%),
+                linear-gradient(135deg, #080d19 0%, #101827 55%, #0b1220 100%);
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 50%;
+            right: -160px;
+            top: -130px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 50%;
+            right: -90px;
+            top: -60px;
+        }
+
+        .hero-grid {
+            min-height: 650px;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 11px;
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.06);
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #dbeafe;
+            margin-bottom: 22px;
+        }
+
+        .eyebrow i {
+            color: #60a5fa;
+        }
+
+        .hero h1 {
+            max-width: 720px;
+            font-size: clamp(42px, 5vw, 68px);
+            line-height: 1.05;
+            letter-spacing: -2.8px;
+            margin-bottom: 23px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #aeb8ca;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 48px;
+            padding: 0 20px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--text);
+        }
+
+        .btn-light:hover {
+            background: #f1f5f9;
+        }
+
+        .btn-outline {
+            border-color: var(--border);
+            background: white;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .hero-stat strong {
+            display: block;
+            font-size: 21px;
+        }
+
+        .hero-stat small {
+            color: #98a2b3;
+            font-size: 12px;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image {
+            height: 430px;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.13);
+            box-shadow: 0 30px 80px rgba(0,0,0,.4);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .78;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255,255,255,.96);
+            color: var(--text);
+            border-radius: 15px;
+            padding: 15px 17px;
+            box-shadow: 0 20px 45px rgba(0,0,0,.28);
+            border: 1px solid rgba(255,255,255,.8);
+        }
+
+        .floating-card.top {
+            top: 30px;
+            left: -35px;
+        }
+
+        .floating-card.bottom {
+            bottom: 28px;
+            right: -30px;
+        }
+
+        .floating-card small {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .floating-card strong {
+            display: block;
+            margin-top: 3px;
+            font-size: 14px;
+        }
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 88px 0;
+        }
+
+        .section-head {
+            margin-bottom: 40px;
+        }
+
+        .section-head.center {
+            text-align: center;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            margin-bottom: 10px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.15;
+            letter-spacing: -1.4px;
+            margin-bottom: 13px;
+        }
+
+        .section-head p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .feature {
+            padding: 26px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: white;
+            transition: .25s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(16,24,40,.08);
+            border-color: #c9d8f8;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #eff6ff;
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon img {
+            width: 31px;
+            height: 31px;
+            object-fit: contain;
+        }
+
+        .feature h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 470px;
+            border-radius: 22px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-copy p {
+            color: var(--muted);
+            margin-bottom: 17px;
+            font-size: 15px;
+        }
+
+        .check-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 13px;
+            margin: 27px 0;
+        }
+
+        .check {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .check i {
+            color: var(--primary);
+            margin-top: 3px;
+        }
+
+        /* ================= FREE BANNER ================= */
+
+        .free-banner {
+            padding: 75px 0;
+            background: #eef4ff;
+        }
+
+        .free-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .free-copy h2 {
+            font-size: 40px;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+        }
+
+        .free-copy p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .free-image {
+            height: 350px;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .free-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ================= CATEGORIES ================= */
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .category {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 23px;
+            text-align: center;
+            transition: .25s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-4px);
+            border-color: #bcd0f7;
+            box-shadow: 0 15px 30px rgba(16,24,40,.07);
+        }
+
+        .category img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin: 0 auto 15px;
+        }
+
+        .category h3 {
+            font-size: 15px;
+        }
+
+        /* ================= COURSES ================= */
+
+        .courses-section {
+            background: white;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .course-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: .25s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(16,24,40,.09);
+        }
+
+        .course-image {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .35s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.04);
+        }
+
+        .badge {
+            position: absolute;
+            top: 13px;
+            left: 13px;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .4px;
+        }
+
+        .free {
+            background: var(--success-bg);
+            color: var(--success);
+        }
+
+        .paid {
+            background: #eff6ff;
+            color: var(--primary);
+        }
+
+        .course-body {
+            padding: 17px;
+        }
+
+        .course-category {
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+        }
+
+        .course-title {
+            font-size: 15px;
+            line-height: 1.45;
+            margin: 7px 0 13px;
+            min-height: 43px;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted);
+            font-size: 11px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 13px;
+        }
+
+        .course-meta i {
+            color: var(--warning);
+            margin-right: 4px;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 13px;
+        }
+
+        .duration {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .price {
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .enroll {
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .center-btn {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* ================= INSTRUCTOR ================= */
+
+        .instructor {
+            position: relative;
+            background:
+                linear-gradient(100deg, rgba(8,13,25,.96), rgba(8,13,25,.78)),
+                url("img/banner-3.jpg") center/cover;
+            color: white;
+        }
+
+        .instructor-grid {
+            min-height: 430px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .instructor-image {
+            height: 340px;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .instructor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .instructor-copy h2 {
+            font-size: 42px;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+        }
+
+        .instructor-copy p {
+            color: #aeb8ca;
+            margin-bottom: 25px;
+            max-width: 530px;
+        }
+
+        /* ================= FAQ ================= */
+
+        .faq {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            border: 0;
+            background: white;
+            padding: 19px 20px;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: .2s ease;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 20px 20px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding-top: 65px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 70px;
+            padding-bottom: 50px;
+        }
+
+        footer .brand {
+            color: white;
+            margin-bottom: 17px;
+        }
+
+        footer .brand span {
+            color: #60a5fa;
+        }
+
+        .footer-description {
+            color: #98a2b3;
+            font-size: 13px;
+            max-width: 350px;
+        }
+
+        .footer h3 {
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #98a2b3;
+            font-size: 13px;
+            margin-bottom: 11px;
+            transition: .2s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            color: #98a2b3;
+            font-size: 13px;
+            margin-bottom: 11px;
+        }
+
+        .socials {
+            display: flex;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .socials a {
+            width: 35px;
+            height: 35px;
+            border: 1px solid #273244;
+            border-radius: 9px;
+            display: grid;
+            place-items: center;
+            color: #cbd5e1;
+            transition: .2s ease;
+        }
+
+        .socials a:hover {
+            background: #1e293b;
+            color: white;
+        }
+
+        .newsletter p {
+            color: #98a2b3;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            background: white;
+            border-radius: 9px;
+            padding: 4px;
+            max-width: 420px;
+        }
+
+        .newsletter-form input {
+            min-width: 0;
+            flex: 1;
+            border: 0;
+            outline: 0;
+            padding: 10px 12px;
+            color: var(--text);
+        }
+
+        .newsletter-form button {
+            border: 0;
+            background: var(--primary);
+            color: white;
+            border-radius: 7px;
+            padding: 0 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .copyright {
+            border-top: 1px solid #1f2937;
+            padding: 20px 0;
+            color: #667085;
+            font-size: 12px;
+        }
+
+        .back-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 43px;
+            height: 43px;
+            border-radius: 10px;
+            background: var(--primary);
+            color: white;
+            display: none;
+            place-items: center;
+            z-index: 900;
+            box-shadow: 0 10px 25px rgba(37,99,235,.25);
+        }
+
+        .back-top.show {
+            display: grid;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1050px) {
+            .feature-grid,
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .course-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                padding: 70px 0;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-grid {
+                min-height: auto;
+            }
+
+            .hero-visual {
+                max-width: 720px;
+            }
+
+            .about-grid,
+            .free-grid,
+            .instructor-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 780px) {
+            .container {
+                width: min(100% - 28px, var(--max));
+            }
+
+            .mobile-toggle {
+                display: grid;
+                place-items: center;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                left: 14px;
+                right: 14px;
+                top: 70px;
+                background: white;
+                border: 1px solid var(--border);
+                border-radius: 14px;
+                padding: 10px;
+                box-shadow: 0 20px 40px rgba(16,24,40,.12);
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a,
+            .nav-dropdown-btn {
+                width: 100%;
+                text-align: left;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                display: block;
+                border: 0;
+                box-shadow: none;
+                padding-left: 10px;
+            }
+
+            .nav-login {
+                margin-left: 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.8px;
+            }
+
+            .floating-card.top {
+                left: 10px;
+            }
+
+            .floating-card.bottom {
+                right: 10px;
+            }
+
+            .course-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .section {
+                padding: 65px 0;
+            }
+
+            .feature-grid,
+            .category-grid,
+            .course-grid,
+            .check-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-grid {
+                padding: 55px 0;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .free-copy h2,
+            .instructor-copy h2 {
+                font-size: 31px;
+            }
+
+            .free-image,
+            .instructor-image {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+
+            <a href="index.html" class="brand">
+                <div class="brand-mark">L</div>
+                <div>Lingo<span>Path</span></div>
+            </a>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="courses.html">Courses</a>
+
+                <div class="dropdown">
+                    <button class="nav-dropdown-btn">
+                        Pages <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="team.html">Our Team</a>
+                        <a href="testimonial.html">Testimonials</a>
+                    </div>
+                </div>
+
+                <a href="contact.html">Contact</a>
+                <a href="login.html" class="nav-login">
+                    <i class="fa-regular fa-user"></i>
+                    Sign in
+                </a>
+                <a href="signup.html" class="nav-signup">Get Started</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="container hero-grid">
+
+            <div>
+
+                <div class="eyebrow">
+                    <i class="fa-solid fa-sparkles"></i>
+                    Modern learning for ambitious learners
+                </div>
+
+                <h1>
+                    Build skills that
+                    <span>move you forward.</span>
+                </h1>
+
+                <p>
+                    Learn practical skills through flexible online courses,
+                    guided lessons, projects and certificates. Explore technology,
+                    business, data, design and more with LingoPath.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="courses.html" class="btn btn-primary">
+                        Explore Courses
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="signup.html" class="btn btn-light">
+                        Start Learning
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <strong>100+</strong>
+                        <small>Learning resources</small>
+                    </div>
+
+                    <div class="hero-stat">
+                        <strong>Free</strong>
+                        <small>Courses available</small>
+                    </div>
+
+                    <div class="hero-stat">
+                        <strong>24/7</strong>
+                        <small>Learn at your pace</small>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="hero-visual">
+
+                <div class="hero-image">
+                    <img src="img/carousel-1.jpg" alt="Students learning online">
+                </div>
+
+                <div class="floating-card top">
+                    <small>Learning progress</small>
+                    <strong><i class="fa-solid fa-chart-line" style="color:#2563eb;"></i> Keep moving forward</strong>
+                </div>
+
+                <div class="floating-card bottom">
+                    <small>Popular this week</small>
+                    <strong><i class="fa-solid fa-code" style="color:#2563eb;"></i> Web Development</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="section features">
+
+        <div class="container">
+
+            <div class="section-head center">
+                <span class="section-label">Why LingoPath</span>
+                <h2>A better way to learn online</h2>
+                <p>
+                    Learn from structured resources while keeping your schedule
+                    flexible and your goals clear.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <img src="img/icon1.png" alt="">
+                    </div>
+                    <h3>Learn anything</h3>
+                    <p>
+                        Explore technology, business, data, design and other
+                        in-demand areas in one learning environment.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <img src="img/icon2.png" alt="">
+                    </div>
+                    <h3>Save money</h3>
+                    <p>
+                        Access selected free courses and affordable learning
+                        options without unnecessary costs.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <img src="img/icon3.png" alt="">
+                    </div>
+                    <h3>Flexible learning</h3>
+                    <p>
+                        Study when it works for you and progress through courses
+                        at your own pace.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <img src="img/icon4.png" alt="">
+                    </div>
+                    <h3>Certificates</h3>
+                    <p>
+                        Complete eligible learning programs and build evidence
+                        of your learning achievements.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="section">
+
+        <div class="container about-grid">
+
+            <div class="about-image">
+                <img src="img/about.jpg" alt="Online learning">
+            </div>
+
+            <div class="about-copy">
+
+                <div class="section-head">
+                    <span class="section-label">About LingoPath</span>
+
+                    <h2>Learning should fit your goals, not the other way around.</h2>
+
+                    <p>
+                        LingoPath brings together accessible learning resources
+                        designed for students, professionals and anyone looking
+                        to develop useful skills.
+                    </p>
+
+                    <p>
+                        Whether you are starting from the basics or improving
+                        existing knowledge, our platform gives you a structured
+                        place to discover courses and continue learning.
+                    </p>
+                </div>
+
+                <div class="check-grid">
+
+                    <div class="check">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Expert-led learning resources</span>
+                    </div>
+
+                    <div class="check">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Flexible learning paths</span>
+                    </div>
+
+                    <div class="check">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Comprehensive course catalog</span>
+                    </div>
+
+                    <div class="check">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Practical skills and projects</span>
+                    </div>
+
+                    <div class="check">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Community learning</span>
+                    </div>
+
+                    <div class="check">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Certificates and recognition</span>
+                    </div>
+
+                </div>
+
+                <a href="about.html" class="btn btn-primary">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FREE COURSES ================= -->
+
+    <section class="free-banner">
+
+        <div class="container free-grid">
+
+            <div class="free-copy">
+
+                <span class="section-label">Start for free</span>
+
+                <h2>Explore free courses and start learning today.</h2>
+
+                <p>
+                    Begin your learning journey with short, focused courses
+                    across popular technology and professional domains.
+                    Great Learning Academy also offers free learning resources
+                    for learners exploring new subjects.
+                </p>
+
+                <a href="signup.html" class="btn btn-primary">
+                    Start Learning
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+            <div class="free-image">
+                <img src="img/banner-1.jpg" alt="Free online courses">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-head center">
+                <span class="section-label">Categories</span>
+                <h2>Popular topics to explore</h2>
+                <p>
+                    Choose a subject and start building practical knowledge.
+                </p>
+            </div>
+
+            <div class="category-grid">
+
+                <a href="courses.html" class="category">
+                    <img src="img/cat1.png" alt="Microsoft Excel">
+                    <h3>Microsoft Excel</h3>
+                </a>
+
+                <a href="courses.html" class="category">
+                    <img src="img/cat2.png" alt="AWS">
+                    <h3>AWS</h3>
+                </a>
+
+                <a href="courses.html" class="category">
+                    <img src="img/cat3.png" alt="Python">
+                    <h3>Python</h3>
+                </a>
+
+                <a href="courses.html" class="category">
+                    <img src="img/cat4.png" alt="Java">
+                    <h3>Java</h3>
+                </a>
+
+                <a href="courses.html" class="category">
+                    <img src="img/cat5.png" alt="Web Design">
+                    <h3>Web Design</h3>
+                </a>
+
+                <a href="courses.html" class="category">
+                    <img src="img/cat6.png" alt="Web Development">
+                    <h3>Web Development</h3>
+                </a>
+
+                <a href="courses.html" class="category">
+                    <img src="img/cat7.png" alt="MySQL">
+                    <h3>MySQL</h3>
+                </a>
+
+                <a href="courses.html" class="category">
+                    <img src="img/cat8.png" alt="UI UX Design">
+                    <h3>UI/UX Design</h3>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COURSES ================= -->
+
+    <section class="section courses-section">
+
+        <div class="container">
+
+            <div class="section-head center">
+                <span class="section-label">Popular Courses</span>
+                <h2>Build skills with courses learners are exploring</h2>
+                <p>
+                    Discover beginner-friendly and intermediate courses
+                    across today's most useful digital skills.
+                </p>
+            </div>
+
+            <div class="course-grid">
+
+                <!-- 1 -->
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="img/course-1.jpg" alt="HTML Course">
+                        <span class="badge free">FREE</span>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Web Development</span>
+                        <h3 class="course-title">HTML Course for Beginners</h3>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-star"></i> 4.55</span>
+                            <span>Beginner</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="duration"><i class="fa-regular fa-clock"></i> 2.0 Hrs</span>
+                            <span class="price">$0</span>
+                            <a href="single.html" class="enroll">Enroll →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2 -->
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="img/course-2.jpg" alt="CSS Course">
+                        <span class="badge paid">PAID</span>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Web Development</span>
+                        <h3 class="course-title">Front End Development — CSS</h3>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-star"></i> 4.55</span>
+                            <span>Beginner</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="duration"><i class="fa-regular fa-clock"></i> 4.0 Hrs</span>
+                            <span class="price">$19</span>
+                            <a href="single.html" class="enroll">Enroll →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3 -->
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="img/course-3.jpg" alt="JavaScript Course">
+                        <span class="badge free">FREE</span>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Programming</span>
+                        <h3 class="course-title">Introduction to JavaScript</h3>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-star"></i> 4.46</span>
+                            <span>Beginner</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="duration"><i class="fa-regular fa-clock"></i> 2.5 Hrs</span>
+                            <span class="price">$0</span>
+                            <a href="single.html" class="enroll">Enroll →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4 -->
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="img/course-4.jpg" alt="Python Course">
+                        <span class="badge paid">PAID</span>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Programming</span>
+                        <h3 class="course-title">Python Programming</h3>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-star"></i> 4.54</span>
+                            <span>Beginner</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="duration"><i class="fa-regular fa-clock"></i> 3.0 Hrs</span>
+                            <span class="price">$29</span>
+                            <a href="single.html" class="enroll">Enroll →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5 -->
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="img/course-5.jpg" alt="SQL Course">
+                        <span class="badge free">FREE</span>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Data</span>
+                        <h3 class="course-title">SQL for Data Science</h3>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-star"></i> 4.54</span>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="duration"><i class="fa-regular fa-clock"></i> 5.0 Hrs</span>
+                            <span class="price">$0</span>
+                            <a href="single.html" class="enroll">Enroll →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6 -->
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="img/course-6.jpg" alt="ChatGPT Course">
+                        <span class="badge free">FREE</span>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Artificial Intelligence</span>
+                        <h3 class="course-title">ChatGPT for Beginners</h3>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-star"></i> 3.55</span>
+                            <span>Beginner</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="duration"><i class="fa-regular fa-clock"></i> 4.5 Hrs</span>
+                            <span class="price">$0</span>
+                            <a href="single.html" class="enroll">Enroll →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7 -->
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="img/course-7.jpg" alt="AWS Course">
+                        <span class="badge free">FREE</span>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Cloud Computing</span>
+                        <h3 class="course-title">AWS for Beginners</h3>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-star"></i> 4.53</span>
+                            <span>Beginner</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="duration"><i class="fa-regular fa-clock"></i> 3.0 Hrs</span>
+                            <span class="price">$0</span>
+                            <a href="single.html" class="enroll">Enroll →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 8 -->
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="img/course-8.jpg" alt="Microsoft Azure Course">
+                        <span class="badge paid">PAID</span>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Cloud Computing</span>
+                        <h3 class="course-title">Microsoft Azure Essentials</h3>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-star"></i> 4.64</span>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="duration"><i class="fa-regular fa-clock"></i> 3.5 Hrs</span>
+                            <span class="price">$15</span>
+                            <a href="single.html" class="enroll">Enroll →</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="center-btn">
+                <a href="courses.html" class="btn btn-primary">
+                    View All Courses
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INSTRUCTOR ================= -->
+
+    <section class="section instructor">
+
+        <div class="container instructor-grid">
+
+            <div class="instructor-image">
+                <img src="img/banner-2.png" alt="Become an instructor">
+            </div>
+
+            <div class="instructor-copy">
+
+                <span class="section-label" style="color:#60a5fa;">Teach on LingoPath</span>
+
+                <h2>Turn your knowledge into a learning experience.</h2>
+
+                <p>
+                    Instructors from around the world teach millions of learners
+                    on Udemy. LingoPath gives educators another place to organize
+                    their expertise and share valuable learning experiences.
+                </p>
+
+                <a href="instructor.html" class="btn btn-primary">
+                    Start Teaching Today
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FAQ ================= -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-head center">
+                <span class="section-label">Support</span>
+                <h2>Frequently asked questions</h2>
+                <p>
+                    Everything you need to know before starting your learning journey.
+                </p>
+            </div>
+
+            <div class="faq">
+
+                <div class="faq-item open">
+
+                    <button class="faq-question">
+                        What is LingoPath?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="faq-answer">
+                        LingoPath is an online learning platform that brings
+                        together courses and learning resources across areas
+                        such as software development, data, cloud computing,
+                        artificial intelligence, business and design.
+                    </div>
+
+                </div>
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        Why should I choose Great Learning Academy for free courses?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="faq-answer">
+                        Great Learning Academy provides free learning resources
+                        across several in-demand domains. Its courses can be
+                        useful for learners who want to explore a subject before
+                        committing to a longer learning program.
+                    </div>
+
+                </div>
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        How many courses can I enroll in?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="faq-answer">
+                        Learners can explore multiple available courses and
+                        choose learning paths based on their interests,
+                        schedule and goals.
+                    </div>
+
+                </div>
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        How can I enroll in a course?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="faq-answer">
+                        Select a course from the Courses page and create an
+                        account through the Sign Up option. After registration,
+                        you can continue with the available learning options.
+                    </div>
+
+                </div>
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        Can I learn from other platforms such as Coursera?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="faq-answer">
+                        Yes. LingoPath can be used alongside established learning
+                        platforms such as Coursera, Great Learning Academy and
+                        Udemy. Learners can use these resources to supplement
+                        their main learning path and explore additional topics.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <a href="index.html" class="brand">
+                        <div class="brand-mark">L</div>
+                        <div>Lingo<span>Path</span></div>
+                    </a>
+
+                    <p class="footer-description">
+                        A modern online learning platform designed to help
+                        learners discover useful skills, courses and resources
+                        for continuous growth.
+                    </p>
+
+                    <div class="socials">
+                        <a href="#" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>Quick Links</h3>
+
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="courses.html">Courses</a>
+                        <a href="team.html">Our Team</a>
+                        <a href="testimonial.html">Testimonials</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+
+                </div>
+
+
+                <div class="newsletter">
+
+                    <h3>Stay updated</h3>
+
+                    <p>
+                        Subscribe to receive learning updates, new courses
+                        and useful educational resources.
+                    </p>
+
+                    <form class="newsletter-form" id="newsletterForm">
+
+                        <input
+                            type="email"
+                            id="newsletterEmail"
+                            placeholder="Your email address"
+                            required
+                        >
+
+                        <button type="submit">
+                            Subscribe
+                        </button>
+
+                    </form>
+
+                    <div class="footer-contact" style="margin-top:20px;">
+                        <p>
+                            <i class="fa-regular fa-envelope" style="margin-right:8px;"></i>
+                            Online learning platform
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-globe" style="margin-right:8px;"></i>
+                            Learn from anywhere
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+                © <span id="year"></span>
+                <a href="index.html" style="color:#98a2b3;">LingoPath</a>.
+                All rights reserved.
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Back to top -->
+    <a href="#" class="back-top" id="backTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* Mobile navigation */
+
+        const mobileToggle = document.getElementById("mobileToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        mobileToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("open");
+
+            const icon = mobileToggle.querySelector("i");
+
+            if (navLinks.classList.contains("open")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+            } else {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            }
+        });
+
+
+        /* Close mobile menu after clicking a link */
+
+        document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+            link.addEventListener("click", function() {
+                navLinks.classList.remove("open");
+
+                const icon = mobileToggle.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            });
+
+        });
+
+
+        /* FAQ */
+
+        document.querySelectorAll(".faq-question").forEach(function(button) {
+
+            button.addEventListener("click", function() {
+
+                const item = button.parentElement;
+
+                document.querySelectorAll(".faq-item").forEach(function(other) {
+
+                    if (other !== item) {
+                        other.classList.remove("open");
+                    }
+
+                });
+
+                item.classList.toggle("open");
+
+            });
+
+        });
+
+
+        /* Newsletter */
+
+        document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("newsletterEmail");
+
+            if (email.value.trim() !== "") {
+
+                alert("Thank you for subscribing to LingoPath.");
+
+                email.value = "";
+
+            }
+
+        });
+
+
+        /* Back to top */
+
+        const backTop = document.getElementById("backTop");
+
+        window.addEventListener("scroll", function() {
+
+            if (window.scrollY > 500) {
+                backTop.classList.add("show");
+            } else {
+                backTop.classList.remove("show");
+            }
+
+        });
+
+
+        backTop.addEventListener("click", function(event) {
+
+            event.preventDefault();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        /* Current year */
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>

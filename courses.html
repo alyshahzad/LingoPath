@@ -1,0 +1,2367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Secret Coder — Courses</title>
+
+    <link rel="icon" href="img/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #f6f7f9;
+            --surface: #ffffff;
+            --surface-2: #f1f3f6;
+            --text: #101828;
+            --muted: #667085;
+            --border: #e4e7ec;
+
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+
+            --dark: #0a0f1c;
+            --dark-2: #111827;
+
+            --green: #087443;
+            --green-bg: #ecfdf3;
+
+            --blue-bg: #eff6ff;
+
+            --yellow: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 76px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, .94);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            width: min(1200px, 92%);
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -.6px;
+        }
+
+        .brand img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        .brand-dark {
+            color: var(--text);
+        }
+
+        .brand-blue {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links > a {
+            padding: 10px 14px;
+            border-radius: 8px;
+
+            color: #475467;
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: .2s ease;
+        }
+
+        .nav-links > a:hover {
+            color: var(--primary);
+            background: #f2f4f7;
+        }
+
+        .nav-links > a.active {
+            color: var(--primary);
+            background: var(--blue-bg);
+        }
+
+        .login-btn {
+            margin-left: 7px;
+            border: 1px solid var(--border);
+            display: flex !important;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .login-btn:hover {
+            border-color: #c7d7f8;
+        }
+
+        .menu-btn {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--border);
+            border-radius: 9px;
+
+            background: white;
+            color: var(--text);
+
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(37, 99, 235, .20),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 10% 100%,
+                    rgba(59, 130, 246, .08),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    135deg,
+                    #080d18 0%,
+                    #101827 60%,
+                    #0c1422 100%
+                );
+
+            padding: 92px 0 100px;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            width: 500px;
+            height: 500px;
+
+            right: -230px;
+            top: -250px;
+
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            width: 300px;
+            height: 300px;
+
+            right: 30px;
+            bottom: -230px;
+
+            border: 1px solid rgba(255,255,255,.05);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            width: min(1200px, 92%);
+            margin: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 28px;
+
+            color: #98a2b3;
+            font-size: 13px;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+        .breadcrumb .current {
+            color: #d0d5dd;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 7px 11px;
+            margin-bottom: 20px;
+
+            border: 1px solid rgba(255,255,255,.10);
+            border-radius: 7px;
+
+            color: #b8c7dd;
+            background: rgba(255,255,255,.04);
+
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .7px;
+            text-transform: uppercase;
+        }
+
+        .hero-label span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #3b82f6;
+            box-shadow: 0 0 12px rgba(59,130,246,.9);
+        }
+
+        .hero h1 {
+            max-width: 760px;
+
+            color: white;
+
+            font-size: clamp(42px, 5.5vw, 66px);
+            line-height: 1.04;
+            letter-spacing: -3px;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 strong {
+            color: #60a5fa;
+            font-weight: 800;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            color: #aeb9ca;
+
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 42px;
+
+            margin-top: 38px;
+        }
+
+        .hero-stat strong {
+            display: block;
+
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .hero-stat span {
+            color: #8490a3;
+            font-size: 12px;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            width: min(1200px, 92%);
+            margin: auto;
+        }
+
+        section {
+            padding-top: 78px;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .eyebrow {
+            margin-bottom: 8px;
+
+            color: var(--primary);
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            margin-bottom: 7px;
+
+            color: var(--text);
+
+            font-size: 30px;
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CATEGORIES
+        ========================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .category-card {
+            min-height: 170px;
+
+            padding: 22px;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            transition:
+                transform .25s ease,
+                border-color .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+
+            border-color: #bfd0f4;
+
+            box-shadow:
+                0 18px 40px rgba(16,24,40,.08);
+        }
+
+        .category-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--surface-2);
+            border: 1px solid #e7eaf0;
+            border-radius: 10px;
+        }
+
+        .category-icon img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        .category-arrow {
+            color: #98a2b3;
+            font-size: 13px;
+
+            transition: .2s ease;
+        }
+
+        .category-card:hover .category-arrow {
+            color: var(--primary);
+            transform: translateX(3px);
+        }
+
+        .category-card h3 {
+            margin-top: 23px;
+
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: -.2px;
+        }
+
+        .category-card span {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* =========================
+           COURSE TOOLBAR
+        ========================= */
+
+        .course-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 24px;
+            padding: 14px 16px;
+
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .course-count {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .course-count strong {
+            color: var(--text);
+        }
+
+        .course-filter {
+            display: flex;
+            gap: 7px;
+        }
+
+        .filter-btn {
+            border: 1px solid var(--border);
+            background: white;
+
+            color: #667085;
+
+            padding: 7px 11px;
+            border-radius: 7px;
+
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 600;
+
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--primary);
+            border-color: #bfd0f4;
+            background: var(--blue-bg);
+        }
+
+        /* =========================
+           COURSE GRID
+        ========================= */
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .course-card {
+            overflow: hidden;
+
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            display: flex;
+            flex-direction: column;
+
+            transition:
+                transform .25s ease,
+                border-color .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #c5d3ed;
+
+            box-shadow:
+                0 20px 45px rgba(16,24,40,.10);
+        }
+
+        .course-image {
+            height: 185px;
+
+            position: relative;
+            overflow: hidden;
+
+            background: #e9edf3;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .5s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.045);
+        }
+
+        .course-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,.04),
+                    rgba(0,0,0,.12)
+                );
+        }
+
+        .badge {
+            position: absolute;
+            top: 13px;
+            left: 13px;
+            z-index: 2;
+
+            padding: 5px 8px;
+
+            border-radius: 6px;
+
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: .7px;
+        }
+
+        .badge.free {
+            color: var(--primary);
+            background: rgba(239,246,255,.96);
+        }
+
+        .badge.paid {
+            color: var(--green);
+            background: rgba(236,253,243,.96);
+        }
+
+        .course-body {
+            flex: 1;
+            padding: 19px 18px 17px;
+        }
+
+        .course-category {
+            margin-bottom: 7px;
+
+            color: #98a2b3;
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+        }
+
+        .course-title {
+            min-height: 47px;
+
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 700;
+            letter-spacing: -.25px;
+        }
+
+        .course-title a {
+            transition: .2s ease;
+        }
+
+        .course-title a:hover {
+            color: var(--primary);
+        }
+
+        .course-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            margin-top: 15px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+        }
+
+        .course-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rating {
+            color: var(--yellow);
+        }
+
+        .course-footer {
+            min-height: 55px;
+
+            padding: 12px 18px;
+
+            border-top: 1px solid var(--border);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 9px;
+        }
+
+        .duration {
+            color: var(--muted);
+            font-size: 11px;
+            white-space: nowrap;
+        }
+
+        .duration i {
+            margin-right: 4px;
+        }
+
+        .price {
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .price.free-price {
+            color: var(--green);
+        }
+
+        .enroll {
+            color: var(--primary);
+
+            font-size: 11px;
+            font-weight: 700;
+
+            white-space: nowrap;
+
+            transition: .2s ease;
+        }
+
+        .enroll:hover {
+            color: var(--primary-dark);
+        }
+
+        .enroll i {
+            margin-left: 3px;
+            font-size: 9px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 95px;
+
+            background: var(--dark);
+            color: #98a2b3;
+        }
+
+        .footer-container {
+            width: min(1200px, 92%);
+            margin: auto;
+
+            padding: 68px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .7fr 1.3fr;
+            gap: 80px;
+        }
+
+        .footer-brand {
+            margin-bottom: 14px;
+
+            color: white;
+
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -.5px;
+        }
+
+        .footer-brand span {
+            color: #60a5fa;
+        }
+
+        .footer-description {
+            max-width: 330px;
+
+            color: #8c98aa;
+
+            font-size: 12px;
+            line-height: 1.85;
+        }
+
+        .footer h3 {
+            margin-bottom: 18px;
+
+            color: white;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .footer-links a {
+            display: block;
+
+            margin-bottom: 11px;
+
+            color: #8c98aa;
+
+            font-size: 12px;
+
+            transition: .2s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(2px);
+        }
+
+        .newsletter {
+            display: flex;
+
+            max-width: 420px;
+            margin-top: 15px;
+        }
+
+        .newsletter input {
+            width: 100%;
+            height: 44px;
+
+            padding: 0 13px;
+
+            outline: none;
+
+            background: #111827;
+            border: 1px solid #253047;
+            border-radius: 7px 0 0 7px;
+
+            color: white;
+
+            font-family: inherit;
+            font-size: 12px;
+        }
+
+        .newsletter input:focus {
+            border-color: #3b82f6;
+        }
+
+        .newsletter button {
+            height: 44px;
+
+            padding: 0 17px;
+
+            border: 0;
+            border-radius: 0 7px 7px 0;
+
+            background: var(--primary);
+            color: white;
+
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .newsletter button:hover {
+            background: var(--primary-dark);
+        }
+
+        .socials {
+            display: flex;
+            gap: 8px;
+
+            margin-top: 18px;
+        }
+
+        .socials a {
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #263249;
+            border-radius: 7px;
+
+            color: #8c98aa;
+
+            transition: .2s ease;
+        }
+
+        .socials a:hover {
+            color: white;
+            background: #172033;
+            border-color: #34425d;
+        }
+
+        .copyright {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: 52px;
+            padding-top: 24px;
+
+            border-top: 1px solid #1e293b;
+
+            color: #667085;
+            font-size: 11px;
+        }
+
+        .copyright a {
+            color: #aab4c3;
+        }
+
+        .copyright a:hover {
+            color: white;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 1050px) {
+
+            .courses-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 780px) {
+
+            .navbar {
+                height: 68px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 68px;
+                left: 0;
+
+                width: 100%;
+
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+
+                padding: 10px 4% 15px;
+
+                background: rgba(255,255,255,.98);
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 15px 30px rgba(16,24,40,.08);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links > a {
+                padding: 12px;
+            }
+
+            .login-btn {
+                margin-left: 0;
+            }
+
+            .hero {
+                padding: 65px 0 72px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+                letter-spacing: -2px;
+            }
+
+            .hero-stats {
+                gap: 25px;
+            }
+
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 38px;
+            }
+        }
+
+        @media (max-width: 540px) {
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 20px 30px;
+            }
+
+            .categories,
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-toolbar {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .course-image {
+                height: 210px;
+            }
+
+            section {
+                padding-top: 58px;
+            }
+
+            .section-header h2 {
+                font-size: 26px;
+            }
+
+            .copyright {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="brand">
+                <img src="img/icon.png" alt="Secret Coder">
+                <span class="brand-dark">Secret</span>
+                <span class="brand-blue">Coder</span>
+            </a>
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open navigation menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="index.html">Home</a>
+
+                <a href="about.html">About</a>
+
+                <a href="courses.html" class="active">Courses</a>
+
+                <a href="team.html">Team</a>
+
+                <a href="testimonial.html">Reviews</a>
+
+                <a href="contact.html">Contact</a>
+
+                <a href="login.html" class="login-btn">
+                    <i class="fa-regular fa-user"></i>
+                    Sign in
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-container">
+
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="current">Courses</span>
+            </div>
+
+            <div class="hero-label">
+                <span></span>
+                Learning library
+            </div>
+
+            <h1>
+                Learn skills that
+                <strong>move you forward.</strong>
+            </h1>
+
+            <p>
+                Explore practical courses in programming, web development,
+                cloud computing, databases, data and modern digital skills.
+                Learn at your own pace and build knowledge you can actually use.
+            </p>
+
+            <div class="hero-stats">
+
+                <div class="hero-stat">
+                    <strong>12+</strong>
+                    <span>Courses</span>
+                </div>
+
+                <div class="hero-stat">
+                    <strong>8</strong>
+                    <span>Learning areas</span>
+                </div>
+
+                <div class="hero-stat">
+                    <strong>Free</strong>
+                    <span>Courses available</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <main class="main">
+
+        <!-- =========================
+             CATEGORIES
+        ========================= -->
+
+        <section>
+
+            <div class="section-header">
+
+                <div class="eyebrow">
+                    Explore by topic
+                </div>
+
+                <h2>
+                    Browse learning categories
+                </h2>
+
+                <p>
+                    Choose an area and find courses built around practical skills.
+                </p>
+
+            </div>
+
+
+            <div class="categories">
+
+                <a href="#" class="category-card">
+
+                    <div class="category-top">
+
+                        <div class="category-icon">
+                            <img src="img/cat1.png" alt="Microsoft Excel">
+                        </div>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square category-arrow"></i>
+
+                    </div>
+
+                    <div>
+                        <h3>Microsoft Excel</h3>
+                        <span>Spreadsheets & productivity</span>
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="category-card">
+
+                    <div class="category-top">
+
+                        <div class="category-icon">
+                            <img src="img/cat2.png" alt="AWS">
+                        </div>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square category-arrow"></i>
+
+                    </div>
+
+                    <div>
+                        <h3>AWS</h3>
+                        <span>Cloud computing</span>
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="category-card">
+
+                    <div class="category-top">
+
+                        <div class="category-icon">
+                            <img src="img/cat3.png" alt="Python">
+                        </div>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square category-arrow"></i>
+
+                    </div>
+
+                    <div>
+                        <h3>Python</h3>
+                        <span>Programming & development</span>
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="category-card">
+
+                    <div class="category-top">
+
+                        <div class="category-icon">
+                            <img src="img/cat4.png" alt="Java">
+                        </div>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square category-arrow"></i>
+
+                    </div>
+
+                    <div>
+                        <h3>Java</h3>
+                        <span>Software development</span>
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="category-card">
+
+                    <div class="category-top">
+
+                        <div class="category-icon">
+                            <img src="img/cat5.png" alt="Web Design">
+                        </div>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square category-arrow"></i>
+
+                    </div>
+
+                    <div>
+                        <h3>Web Design</h3>
+                        <span>Design & interfaces</span>
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="category-card">
+
+                    <div class="category-top">
+
+                        <div class="category-icon">
+                            <img src="img/cat6.png" alt="Web Development">
+                        </div>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square category-arrow"></i>
+
+                    </div>
+
+                    <div>
+                        <h3>Web Development</h3>
+                        <span>Frontend & backend</span>
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="category-card">
+
+                    <div class="category-top">
+
+                        <div class="category-icon">
+                            <img src="img/cat7.png" alt="MySQL">
+                        </div>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square category-arrow"></i>
+
+                    </div>
+
+                    <div>
+                        <h3>MySQL</h3>
+                        <span>Databases & SQL</span>
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="category-card">
+
+                    <div class="category-top">
+
+                        <div class="category-icon">
+                            <img src="img/cat8.png" alt="UI UX Design">
+                        </div>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square category-arrow"></i>
+
+                    </div>
+
+                    <div>
+                        <h3>UI/UX Design</h3>
+                        <span>Product & experience design</span>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             COURSES
+        ========================= -->
+
+        <section>
+
+            <div class="section-header">
+
+                <div class="eyebrow">
+                    Learning library
+                </div>
+
+                <h2>
+                    Popular courses
+                </h2>
+
+                <p>
+                    Start with a course and learn at your own pace.
+                </p>
+
+            </div>
+
+
+            <div class="course-toolbar">
+
+                <div class="course-count">
+                    Showing <strong>12 courses</strong>
+                </div>
+
+                <div class="course-filter">
+
+                    <button class="filter-btn active">
+                        All
+                    </button>
+
+                    <button class="filter-btn">
+                        Free
+                    </button>
+
+                    <button class="filter-btn">
+                        Paid
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="courses-grid">
+
+
+                <!-- COURSE 1 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-1.jpg" alt="HTML Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge free">FREE</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Web Development
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="single.html">
+                                HTML Course for Beginners
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                4.55
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                5.8L+
+                            </span>
+
+                            <span>
+                                Beginner
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            2.0 hrs
+                        </span>
+
+                        <span class="price free-price">
+                            Free
+                        </span>
+
+                        <a href="single.html" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 2 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-2.jpg" alt="CSS Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge paid">PAID</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Web Development
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                Front End Development — CSS
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                4.55
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                5.2L+
+                            </span>
+
+                            <span>
+                                Beginner
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            4.0 hrs
+                        </span>
+
+                        <span class="price">
+                            $9.99
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 3 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-3.jpg" alt="JavaScript Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge free">FREE</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Programming
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                Introduction to JavaScript
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                4.46
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                76L+
+                            </span>
+
+                            <span>
+                                Beginner
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            2.5 hrs
+                        </span>
+
+                        <span class="price free-price">
+                            Free
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 4 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-4.jpg" alt="Python Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge paid">PAID</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Programming
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                Python Programming
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                3.54
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                3.3L+
+                            </span>
+
+                            <span>
+                                Beginner
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            3.0 hrs
+                        </span>
+
+                        <span class="price">
+                            $14.99
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 5 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-5.jpg" alt="SQL Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge free">FREE</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Data & Databases
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                SQL for Data Science
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                4.54
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                1.3L+
+                            </span>
+
+                            <span>
+                                Intermediate
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            5.0 hrs
+                        </span>
+
+                        <span class="price free-price">
+                            Free
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 6 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-6.jpg" alt="ChatGPT Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge free">FREE</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Artificial Intelligence
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                ChatGPT for Beginners
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                3.55
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                3.5L+
+                            </span>
+
+                            <span>
+                                Beginner
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            4.5 hrs
+                        </span>
+
+                        <span class="price free-price">
+                            Free
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 7 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-7.jpg" alt="AWS Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge free">FREE</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Cloud Computing
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                AWS for Beginners
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                4.53
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                1L+
+                            </span>
+
+                            <span>
+                                Beginner
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            3.0 hrs
+                        </span>
+
+                        <span class="price free-price">
+                            Free
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 8 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-8.jpg" alt="Azure Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge paid">PAID</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Cloud Computing
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                Microsoft Azure Essentials
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                4.64
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                4.4L+
+                            </span>
+
+                            <span>
+                                Intermediate
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            3.5 hrs
+                        </span>
+
+                        <span class="price">
+                            $7.99
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 9 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-9.png" alt="Excel Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge free">FREE</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Productivity
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                Introduction to MS Excel
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                4.60
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                4.2L+
+                            </span>
+
+                            <span>
+                                Beginner
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            3.5 hrs
+                        </span>
+
+                        <span class="price free-price">
+                            Free
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 10 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-10.png" alt="Statistics Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge paid">PAID</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Data Science
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                Statistics for Data Science
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                4.55
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                5.3L+
+                            </span>
+
+                            <span>
+                                Intermediate
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            2.5 hrs
+                        </span>
+
+                        <span class="price">
+                            $14.99
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 11 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-11.jpg" alt="Java Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge free">FREE</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Programming
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                Java Programming
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                4.45
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                5L+
+                            </span>
+
+                            <span>
+                                Beginner
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            2.0 hrs
+                        </span>
+
+                        <span class="price free-price">
+                            Free
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COURSE 12 -->
+
+                <article class="course-card">
+
+                    <div class="course-image">
+                        <img src="img/course-12.jpg" alt="C Programming Course">
+                        <div class="course-overlay"></div>
+                        <span class="badge free">FREE</span>
+                    </div>
+
+                    <div class="course-body">
+
+                        <div class="course-category">
+                            Programming
+                        </div>
+
+                        <h3 class="course-title">
+                            <a href="#">
+                                C Programming for Beginners
+                            </a>
+                        </h3>
+
+                        <div class="course-meta">
+
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                4.50
+                            </span>
+
+                            <span>
+                                <i class="fa-solid fa-user-group"></i>
+                                1.1L+
+                            </span>
+
+                            <span>
+                                Beginner
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            1.5 hrs
+                        </span>
+
+                        <span class="price free-price">
+                            Free
+                        </span>
+
+                        <a href="#" class="enroll">
+                            Enroll
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <div class="footer-brand">
+                        Secret<span>Coder</span>
+                    </div>
+
+                    <p class="footer-description">
+                        A practical learning platform for students and
+                        aspiring professionals building useful technical
+                        and digital skills.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3>Platform</h3>
+
+                    <div class="footer-links">
+
+                        <a href="index.html">Home</a>
+
+                        <a href="about.html">About</a>
+
+                        <a href="courses.html">Courses</a>
+
+                        <a href="contact.html">Contact</a>
+
+                        <a href="login.html">Sign in</a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>Stay updated</h3>
+
+                    <p class="footer-description">
+                        Get updates about new courses and learning resources.
+                    </p>
+
+                    <form
+                        class="newsletter"
+                        onsubmit="return subscribeNewsletter(event)">
+
+                        <input
+                            type="email"
+                            id="newsletterEmail"
+                            placeholder="Email address"
+                            required>
+
+                        <button type="submit">
+                            Subscribe
+                        </button>
+
+                    </form>
+
+                    <div class="socials">
+
+                        <a href="#" aria-label="X">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+
+                        <a href="#" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+
+                        <a href="#" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+
+                <span>
+                    © 2026 Secret Coder. All rights reserved.
+                </span>
+
+                <span>
+                    <a href="#">Privacy</a>
+                    &nbsp; · &nbsp;
+                    <a href="#">Terms</a>
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("show");
+
+            const icon = menuBtn.querySelector("i");
+
+            if (navLinks.classList.contains("show")) {
+
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            }
+
+        });
+
+
+        /* =========================
+           COURSE FILTER
+        ========================= */
+
+        const filterButtons =
+            document.querySelectorAll(".filter-btn");
+
+        const courseCards =
+            document.querySelectorAll(".course-card");
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                filterButtons.forEach(btn =>
+                    btn.classList.remove("active")
+                );
+
+                this.classList.add("active");
+
+                const filter =
+                    this.textContent.trim().toLowerCase();
+
+                courseCards.forEach(card => {
+
+                    const badge =
+                        card.querySelector(".badge");
+
+                    if (filter === "all") {
+
+                        card.style.display = "";
+
+                    } else if (
+                        badge &&
+                        badge.textContent.trim().toLowerCase() === filter
+                    ) {
+
+                        card.style.display = "";
+
+                    } else {
+
+                        card.style.display = "none";
+
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        /* =========================
+           NEWSLETTER
+        ========================= */
+
+        function subscribeNewsletter(event) {
+
+            event.preventDefault();
+
+            const email =
+                document.getElementById("newsletterEmail");
+
+            if (!email.value) {
+                return false;
+            }
+
+            alert(
+                "Thanks for subscribing! We'll keep you updated."
+            );
+
+            email.value = "";
+
+            return false;
+        }
+
+    </script>
+
+</body>
+
+</html>
