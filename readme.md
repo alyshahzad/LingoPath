@@ -1,7 +1,5 @@
 # LingoPath — E-Learning Website
 
-![LingoPath E-Learning Website](preview.jpg)
-
 LingoPath is a modern e-learning website designed to provide learners with an accessible and structured platform for exploring educational content and developing practical skills.
 
 The project is built using **HTML5, CSS3, Bootstrap 5, and JavaScript**, with a focus on responsive design, clear navigation, interactive learning experiences, and a professional user interface.
@@ -44,7 +42,7 @@ Before running the project, make sure you have:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/LingoPath.git
+git clone https://github.com/alyshahzad/LingoPath.git
 ```
 
 2. Open the project folder in your preferred code editor.
